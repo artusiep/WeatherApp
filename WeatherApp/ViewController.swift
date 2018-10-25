@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     let currentDate = Date()
     var date = Date()
     let dateFormatterPrint = DateFormatter()
-    let sanFranciscoWoeid = 2487956
+    var woeid = 0
     let calendar = Calendar.current
     var weatherData: [ConsolidatedWeather] = []
     var dayIterator = 0
@@ -36,8 +36,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        statusImageView.contentMode = .scaleAspectFit
         bootstrap()
+        cityTextField.text = cityForecasts[myIndex].forecast?.title
+        
+        statusImageView.contentMode = .scaleAspectFit
     }
     
     func bootstrap() {
@@ -45,13 +47,9 @@ class ViewController: UIViewController {
         nextBtn.isEnabled = true
         date = currentDate
         dateFormatterPrint.dateFormat = "MMM dd,yyyy"
-        viewModel.getResults(woeid: sanFranciscoWoeid, completion: { [weak self] forecast in
-            self?.weatherData = forecast.consolidatedWeather
-            self?.weatherData.forEach{ data in
-                print(data)
-            }
-            self?.changeDate(day: 0)
-        })
+        self.woeid = cityForecasts[myIndex].woeid
+        self.weatherData = (cityForecasts[myIndex].forecast?.consolidatedWeather)!
+        self.changeDate(day: 0)
     }
 
     func changeDate(day: Int) {
