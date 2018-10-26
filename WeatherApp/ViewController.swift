@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var rainfallTextField: UITextField!
     @IBOutlet weak var pressureTextField: UITextField!
     @IBOutlet weak var prevBtn: UIButton!
+    @IBOutlet weak var cityNavItem: UINavigationItem!
     @IBOutlet weak var nextBtn: UIButton!
     let currentDate = Date()
     var date = Date()
@@ -37,7 +38,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         bootstrap()
-        cityTextField.text = cityForecasts[myIndex].forecast?.title
+        
         
         statusImageView.contentMode = .scaleAspectFit
     }
@@ -49,6 +50,9 @@ class ViewController: UIViewController {
         dateFormatterPrint.dateFormat = "MMM dd,yyyy"
         self.woeid = cityForecasts[myIndex].woeid
         self.weatherData = (cityForecasts[myIndex].forecast?.consolidatedWeather)!
+        cityTextField.text = cityForecasts[myIndex].forecast?.title
+        cityNavItem.title = cityForecasts[myIndex].forecast?.title
+        cityNavItem.backBarButtonItem?.title = "Back"
         self.changeDate(day: 0)
     }
 
@@ -77,12 +81,12 @@ class ViewController: UIViewController {
         print(dayIterator)
         statusImageView.image = UIImage(named: weatherData[dayIterator].weatherStateAbbr)
         statusLabel.text = weatherData[dayIterator].weatherStateName
-        maxTempTextField.text = String(round2(value: weatherData[dayIterator].maxTemp))
-        minTempTextField.text = String(round2(value: weatherData[dayIterator].minTemp))
-        windVelTextField.text = String(round2(value: weatherData[dayIterator].windSpeed))
+        maxTempTextField.text = String(round2(value: weatherData[dayIterator].maxTemp)) + " ℃"
+        minTempTextField.text = String(round2(value: weatherData[dayIterator].minTemp)) + " ℃"
+        windVelTextField.text = String(round2(value: weatherData[dayIterator].windSpeed)) + " m/s"
         windDirTextField.text = weatherData[dayIterator].windDirectionCompass
         rainfallTextField.text = rainingStates.contains(weatherData[dayIterator].weatherStateAbbr) ? "Raining" : "No rain"
-        pressureTextField.text = String(round2(value: weatherData[dayIterator].airPressure))
+        pressureTextField.text = String(round2(value: weatherData[dayIterator].airPressure)) + " psi"
         
     }
     

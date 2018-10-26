@@ -22,14 +22,17 @@ var myIndex = 0
 
 class TableViewController: UITableViewController {
     private let viewModel = ViewModel()
-
+    @IBOutlet weak var signature: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        signature.title = "Artur Siepietowski"
         for whoeid in knownWhoeids {
             viewModel.getResults(woeid: whoeid, completion: { forecast in
                 let cityForecast = CityForecast(woeid: whoeid, forecast: forecast)
                 cityForecasts.append(cityForecast)
                 self.tableView.reloadData()
+                print("Cites" + String(cityForecasts.count))
             })
         }
     }
@@ -42,7 +45,10 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let currentWeather = cityForecasts[indexPath.row].forecast?.consolidatedWeather.first
         cell.textLabel?.text = cityForecasts[indexPath.row].forecast?.title
+        cell.imageView?.image = UIImage(named: (currentWeather?.weatherStateAbbr)!)
+        cell.detailTextLabel?.text = String(Double(round((currentWeather?.theTemp)! * 100) / 100)) + " ℃"
         return cell
     }
     
