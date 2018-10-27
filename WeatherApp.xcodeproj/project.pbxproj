@@ -20,6 +20,8 @@
 		2C921F4A217D1A6000D28855 /* ConsolidatedWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C921F49217D1A6000D28855 /* ConsolidatedWeather.swift */; };
 		2C921F4C217D1AF100D28855 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C921F4B217D1AF100D28855 /* ViewModel.swift */; };
 		2CA07E42217F11A600D9B141 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA07E41217F11A600D9B141 /* TableViewController.swift */; };
+		2CD7CC642183AE490066CCCB /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD7CC632183AE490066CCCB /* AddCityViewController.swift */; };
+		2CD7CC662183B2420066CCCB /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD7CC652183B2420066CCCB /* Cities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		2C921F49217D1A6000D28855 /* ConsolidatedWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsolidatedWeather.swift; sourceTree = "<group>"; };
 		2C921F4B217D1AF100D28855 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		2CA07E41217F11A600D9B141 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		2CD7CC632183AE490066CCCB /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
+		2CD7CC652183B2420066CCCB /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 			children = (
 				2C921F0F217CD37200D28855 /* ViewController.swift */,
 				2CA07E41217F11A600D9B141 /* TableViewController.swift */,
+				2CD7CC632183AE490066CCCB /* AddCityViewController.swift */,
 				2C921F40217CE52A00D28855 /* Models */,
 				2C921F0D217CD37200D28855 /* AppDelegate.swift */,
 				2C921F11217CD37200D28855 /* Main.storyboard */,
@@ -147,6 +152,7 @@
 				2C921F45217D19E300D28855 /* Parent.swift */,
 				2C921F47217D1A2200D28855 /* Source.swift */,
 				2C921F49217D1A6000D28855 /* ConsolidatedWeather.swift */,
+				2CD7CC652183B2420066CCCB /* Cities.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,7 +294,9 @@
 				2CA07E42217F11A600D9B141 /* TableViewController.swift in Sources */,
 				2C921F10217CD37200D28855 /* ViewController.swift in Sources */,
 				2C921F48217D1A2200D28855 /* Source.swift in Sources */,
+				2CD7CC662183B2420066CCCB /* Cities.swift in Sources */,
 				2C921F0E217CD37200D28855 /* AppDelegate.swift in Sources */,
+				2CD7CC642183AE490066CCCB /* AddCityViewController.swift in Sources */,
 				2C921F4C217D1AF100D28855 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

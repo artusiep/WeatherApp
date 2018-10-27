@@ -10,12 +10,17 @@ import Foundation
 import UIKit
 
 
-public struct CityForecast {
+public struct CityForecast: Equatable {
+    public static func == (lhs: CityForecast, rhs: CityForecast) -> Bool {
+        return lhs.woeid == rhs.woeid
+    }
+    
     var woeid: Int
     var forecast: Forecast?
 }
 
-let knownWhoeids = [2487956, 44418, 523920]
+var woeidsToFetchData = [2487956, 44418, 523920]
+var woeidsWithForecast: [Int] = []
 
 var cityForecasts = [CityForecast]()
 var myIndex = 0
@@ -26,13 +31,19 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        signature.title = "Artur Siepietowski"
-        for whoeid in knownWhoeids {
+        getForecastFromApi()
+    }
+    
+    func getForecastFromApi() {
+        for whoeid in woeidsToFetchData {
             viewModel.getResults(woeid: whoeid, completion: { forecast in
                 let cityForecast = CityForecast(woeid: whoeid, forecast: forecast)
+                woeidsWithForecast.append(whoeid)
+                woeidsToFetchData = woeidsToFetchData.filter { element in
+                    return !woeidsWithForecast.contains(element)
+                }
                 cityForecasts.append(cityForecast)
                 self.tableView.reloadData()
-                print("Cites" + String(cityForecasts.count))
             })
         }
     }

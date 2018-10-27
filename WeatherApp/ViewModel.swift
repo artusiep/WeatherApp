@@ -33,4 +33,30 @@ public class ViewModel {
             }
             }.resume()
     }
+    
+    func getCities(query: String, completion: @escaping (Cities) -> ()) {
+        let urlString = "https://www.metaweather.com/api/location/search/?query=\(query.lowercased())"
+        guard let url = URL(string: urlString) else {
+            assertionFailure("URL init failed")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let cities = try decoder.decode(Cities.self, from: data)
+                DispatchQueue.main.async {
+                    print(cities)
+                    completion(cities)
+                }
+                
+            } catch let error {
+                print("Error: ", error)
+            }
+            }.resume()
+    }
 }
