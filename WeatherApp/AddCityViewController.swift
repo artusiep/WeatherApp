@@ -31,6 +31,10 @@ class AddCityViewController: UIViewController, UITableViewDelegate, UITableViewD
         })
     }
     
+    @IBAction func backButtonAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.cities.count
     }

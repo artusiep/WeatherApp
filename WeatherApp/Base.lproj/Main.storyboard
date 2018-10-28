@@ -73,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6CJ-7g-aEb">
-                                <rect key="frame" x="40" y="64" width="225" height="30"/>
+                                <rect key="frame" x="74" y="64" width="211" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -82,7 +82,7 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AddCityViewController" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XJa-ux-iAA">
-                                <rect key="frame" x="0.0" y="114" width="375" height="664"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QueryCell" id="Y3V-y7-xNI">
@@ -107,18 +107,27 @@
                                     <action selector="findButtonAccion:" destination="0cL-K4-got" eventType="touchUpInside" id="dID-j0-ZKn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwg-s1-lKH">
+                                <rect key="frame" x="20" y="64" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="0cL-K4-got" eventType="touchUpInside" id="Zjf-oG-JUa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="BaW-dM-nfq" firstAttribute="trailing" secondItem="P3i-UN-OQm" secondAttribute="trailing" constant="40" id="5H4-wG-IZ2"/>
                             <constraint firstItem="BaW-dM-nfq" firstAttribute="bottom" secondItem="XJa-ux-iAA" secondAttribute="bottom" id="AcD-8E-kBT"/>
+                            <constraint firstItem="Gwg-s1-lKH" firstAttribute="leading" secondItem="BaW-dM-nfq" secondAttribute="leading" constant="20" id="AyG-8Y-6fO"/>
                             <constraint firstItem="BaW-dM-nfq" firstAttribute="trailing" secondItem="XJa-ux-iAA" secondAttribute="trailing" id="HH7-LY-tUq"/>
+                            <constraint firstItem="Gwg-s1-lKH" firstAttribute="baseline" secondItem="P3i-UN-OQm" secondAttribute="baseline" id="J2q-eQ-F3F"/>
                             <constraint firstItem="6CJ-7g-aEb" firstAttribute="top" secondItem="BaW-dM-nfq" secondAttribute="top" constant="20" id="LaS-Wg-99C"/>
+                            <constraint firstItem="6CJ-7g-aEb" firstAttribute="leading" secondItem="Gwg-s1-lKH" secondAttribute="trailing" constant="20" id="Lhv-Te-QVF"/>
                             <constraint firstItem="XJa-ux-iAA" firstAttribute="leading" secondItem="BaW-dM-nfq" secondAttribute="leading" id="Qza-FK-0E5"/>
                             <constraint firstItem="6CJ-7g-aEb" firstAttribute="top" secondItem="P3i-UN-OQm" secondAttribute="top" id="R2c-Nx-fcq"/>
-                            <constraint firstItem="XJa-ux-iAA" firstAttribute="top" secondItem="6CJ-7g-aEb" secondAttribute="bottom" constant="20" id="ZVZ-DC-peD"/>
-                            <constraint firstItem="P3i-UN-OQm" firstAttribute="leading" secondItem="6CJ-7g-aEb" secondAttribute="trailing" constant="40" id="gda-z3-XM7"/>
-                            <constraint firstItem="6CJ-7g-aEb" firstAttribute="leading" secondItem="BaW-dM-nfq" secondAttribute="leading" constant="40" id="imk-tN-xVN"/>
+                            <constraint firstItem="XJa-ux-iAA" firstAttribute="top" secondItem="6CJ-7g-aEb" secondAttribute="bottom" id="ZVZ-DC-peD"/>
+                            <constraint firstItem="P3i-UN-OQm" firstAttribute="leading" secondItem="6CJ-7g-aEb" secondAttribute="trailing" constant="20" id="gda-z3-XM7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BaW-dM-nfq"/>
                     </view>
