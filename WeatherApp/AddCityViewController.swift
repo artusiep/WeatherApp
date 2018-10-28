@@ -43,13 +43,11 @@ class AddCityViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void {
-        let chosesnCityWhoeid = cities[indexPath.row].woeid
-        print(chosesnCityWhoeid)
-        print(woeidsWithForecast)
-        if(!woeidsWithForecast.contains(chosesnCityWhoeid)) {
+        let chosenCityWhoeid = cities[indexPath.row].woeid
+        if(!woeidsWithForecast.contains(chosenCityWhoeid)) {
             woeidsToFetchData.append(cities[indexPath.row].woeid)
         }
-        performSegue(withIdentifier: "FromQuerySeque", sender: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

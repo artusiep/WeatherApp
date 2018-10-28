@@ -31,6 +31,10 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidLoad()
         getForecastFromApi()
     }
     
@@ -48,6 +52,12 @@ class TableViewController: UITableViewController {
         }
     }
     
+    @IBAction func addButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "AddCityViewController")
+        
+        self.present(controller, animated: true, completion: nil)
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cityForecasts.count
