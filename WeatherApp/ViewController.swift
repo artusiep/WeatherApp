@@ -59,7 +59,6 @@ class ViewController: UIViewController {
     private func changeDate(day: Int) {
         
         date = calendar.date(byAdding: .day, value: day, to: self.date)!
-        print(weatherData.endIndex)
         dayIterator = dayIterator + day
         if(dayIterator < 0) {
             dayIterator = 0
@@ -78,7 +77,6 @@ class ViewController: UIViewController {
     }
 
     private func updateForecast() {
-        print(dayIterator)
         statusImageView.image = UIImage(named: weatherData[dayIterator].weatherStateAbbr)
         statusLabel.text = weatherData[dayIterator].weatherStateName
         maxTempTextField.text = String(round2(value: weatherData[dayIterator].maxTemp)) + " ℃"

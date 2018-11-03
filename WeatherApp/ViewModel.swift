@@ -50,7 +50,6 @@ public class ViewModel {
                 let decoder = JSONDecoder()
                 let cities = try decoder.decode(Cities.self, from: data)
                 DispatchQueue.main.async {
-                    print(cities)
                     completion(cities)
                 }
                 
@@ -76,7 +75,6 @@ public class ViewModel {
                 let decoder = JSONDecoder()
                 let cities = try decoder.decode(Cities.self, from: data)
                 DispatchQueue.main.async {
-                    print(cities)
                     completion(cities)
                 }
                 
