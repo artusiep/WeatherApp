@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         statusImageView.contentMode = .scaleAspectFit
     }
     
-    func bootstrap() {
+    private func bootstrap() {
         prevBtn.isEnabled = false
         nextBtn.isEnabled = true
         date = currentDate
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         self.changeDate(day: 0)
     }
 
-    func changeDate(day: Int) {
+    private func changeDate(day: Int) {
         
         date = calendar.date(byAdding: .day, value: day, to: self.date)!
         print(weatherData.endIndex)
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
         
     }
 
-    func updateForecast() {
+    private func updateForecast() {
         print(dayIterator)
         statusImageView.image = UIImage(named: weatherData[dayIterator].weatherStateAbbr)
         statusLabel.text = weatherData[dayIterator].weatherStateName
@@ -90,7 +90,7 @@ class ViewController: UIViewController {
         
     }
     
-    func round2(value: Double) -> Double {
+    private func round2(value: Double) -> Double {
         return Double(round(value * 100) / 100)
     }
     
@@ -100,6 +100,13 @@ class ViewController: UIViewController {
     
     @IBAction func prevDate(_ sender: Any) {
         changeDate(day: -1)
+    }
+    
+    @IBAction func displayMapButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "MapViewController")
+        
+        self.present(controller, animated: true, completion: nil)
     }
 }
 

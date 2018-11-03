@@ -22,6 +22,8 @@
 		2CA07E42217F11A600D9B141 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA07E41217F11A600D9B141 /* TableViewController.swift */; };
 		2CD7CC642183AE490066CCCB /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD7CC632183AE490066CCCB /* AddCityViewController.swift */; };
 		2CD7CC662183B2420066CCCB /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD7CC652183B2420066CCCB /* Cities.swift */; };
+		2CF27D03218853F2007C0A89 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27D02218853F2007C0A89 /* MapViewController.swift */; };
+		2CF27D0621885B1F007C0A89 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF27D0521885B1F007C0A89 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		2CA07E41217F11A600D9B141 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		2CD7CC632183AE490066CCCB /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 		2CD7CC652183B2420066CCCB /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		2CF27D02218853F2007C0A89 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2CF27D0521885B1F007C0A89 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CF27D0621885B1F007C0A89 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +102,7 @@
 				2C921F21217CD37400D28855 /* WeatherAppTests */,
 				2C921F2C217CD37400D28855 /* WeatherAppUITests */,
 				2C921F0B217CD37200D28855 /* Products */,
+				2CF27D0421885B1F007C0A89 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +122,7 @@
 				2C921F0F217CD37200D28855 /* ViewController.swift */,
 				2CA07E41217F11A600D9B141 /* TableViewController.swift */,
 				2CD7CC632183AE490066CCCB /* AddCityViewController.swift */,
+				2CF27D02218853F2007C0A89 /* MapViewController.swift */,
 				2C921F40217CE52A00D28855 /* Models */,
 				2C921F0D217CD37200D28855 /* AppDelegate.swift */,
 				2C921F11217CD37200D28855 /* Main.storyboard */,
@@ -155,6 +162,14 @@
 				2CD7CC652183B2420066CCCB /* Cities.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2CF27D0421885B1F007C0A89 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CF27D0521885B1F007C0A89 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +240,11 @@
 				TargetAttributes = {
 					2C921F09217CD37200D28855 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					2C921F1D217CD37400D28855 = {
 						CreatedOnToolsVersion = 10.0;
@@ -288,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CF27D03218853F2007C0A89 /* MapViewController.swift in Sources */,
 				2C921F42217CE53F00D28855 /* Forecast.swift in Sources */,
 				2C921F4A217D1A6000D28855 /* ConsolidatedWeather.swift in Sources */,
 				2C921F46217D19E300D28855 /* Parent.swift in Sources */,
@@ -473,6 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FAWS94X7JA;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -490,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FAWS94X7JA;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
