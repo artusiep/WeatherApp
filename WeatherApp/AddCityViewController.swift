@@ -36,6 +36,8 @@ class AddCityViewController: UIViewController, CLLocationManagerDelegate, UITabl
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocation = manager.location else { return }
+        self.currentLocation = locValue
+        print(self.currentLocation.coordinate)
         fetchCityAndCountry(from: locValue) { city, country, error in
             guard let city = city, let country = country, error == nil else { return }
             self.currentLocationLabel.text = "You are in: \(city), \(country)"
@@ -54,6 +56,19 @@ class AddCityViewController: UIViewController, CLLocationManagerDelegate, UITabl
         print(addCityTextField.text!)
         let cityQuery = addCityTextField.text ?? ""
         viewModel.getCities(query: cityQuery, completion: { [weak self] response in
+            self?.cities = response
+            self?.tableView.reloadData()
+        })
+    }
+    
+    func prepareCoorQuery(location: CLLocation) -> String {
+        return String(location.coordinate.latitude) + "," + String(location.coordinate.longitude)
+    }
+    
+    @IBAction func addCurrLocationButton(_ sender: Any) {
+        let coorQuery = prepareCoorQuery(location: currentLocation)
+        print(coorQuery)
+        viewModel.getClosestCities(coorQuery: coorQuery, completion: { [weak self] response in
             self?.cities = response
             self?.tableView.reloadData()
         })
